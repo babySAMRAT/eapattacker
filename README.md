@@ -1,14 +1,14 @@
-# EapAttacker — WPA2-Enterprise Attack Framework
+# EAP-ATTACKER — WPA2-Enterprise Attack Framework
 
 > **⚠️ For authorized penetration testing and educational purposes only.**
 > Unauthorized use of these tools against networks you do not own or have explicit permission to test is **illegal** and **unethical**.
 
 ```
-  ______          ___   __  __             __
- / ____/___ _____/   | / /_/ /_____ ______/ /_____  _____
-/ __/ / __ `/ __/ /| |/ __/ __/ __ `/ ___/ //_/ _ \/ ___/
-/ /___/ /_/ / /__/ ___ / /_/ /_/ /_/ / /__/ ,< /  __/ /
-/_____/\__,_/\___/_/  |_\__/\__/\__,_/\___/_/|_|\___/_/
+ ███████  █████  ██████       █████  ████████ ████████  █████   ██████ ██   ██ ███████ ██████  
+ ██      ██   ██ ██   ██     ██   ██    ██       ██    ██   ██ ██      ██  ██  ██      ██   ██ 
+ █████   ███████ ██████  ──  ███████    ██       ██    ███████ ██      █████   █████   ██████  
+ ██      ██   ██ ██          ██   ██    ██       ██    ██   ██ ██      ██  ██  ██      ██   ██ 
+ ███████ ██   ██ ██          ██   ██    ██       ██    ██   ██  ██████ ██   ██ ███████ ██   ██ 
 ```
 
 A modular Python framework for testing WPA2-Enterprise (802.1X / EAP) network security. It combines rogue access point creation, credential harvesting, deauthentication attacks, KARMA probing, and hostile captive portal phishing into a single CLI-driven toolkit.
