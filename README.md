@@ -67,6 +67,19 @@ Generated at runtime:
 
 ---
 
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/babySAMRAT/eapattacker.git
+cd eapattacker
+
+# Install Python dependencies
+pip install -r requirements.txt
+```
+
+---
+
 ## Requirements
 
 ### System Dependencies
