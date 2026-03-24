@@ -95,7 +95,7 @@ pip install -r requirements.txt
 Install with:
 
 ```bash
-pip install -r requirements.txt
+sudo apt install -y python3-scapy python3-flask
 ```
 
 Or manually:
