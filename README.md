@@ -40,14 +40,29 @@ The framework supports three credential capture strategies via the `--negotiate`
 ## Project Structure
 
 ```
-├── eapattacker.py              # Main CLI entry point
-├── karma.py                    # KARMA attack module
-├── hostile_portal.py           # Captive portal credential phishing
-├── WPA2-EAP/
-│   ├── rogue_ap.py             # Rogue AP launcher (hostapd config generator)
-│   ├── cert_wizard.py          # Fake certificate generator (OpenSSL)
-│   └── deauth.py               # Targeted deauthentication attack
+eapattacker/
+├── eapattacker.py        # Main CLI entry point
+├── rogue_ap.py           # Rogue AP launcher (hostapd config generator)
+├── cert_wizard.py        # Fake certificate generator (OpenSSL)
+├── deauth.py             # Targeted deauthentication attack
+├── karma.py              # KARMA attack module
+├── hostile_portal.py     # Captive portal credential phishing
+├── requirements.txt      # Python dependencies
+├── .gitignore
+├── __init__.py
 └── README.md
+```
+
+Generated at runtime:
+
+```
+├── certs/                # Created by --cert-wizard
+│   ├── ca.pem
+│   ├── ca.key
+│   ├── server.pem
+│   ├── server.key
+│   └── server.csr
+└── ad_creds.txt          # Created by --hostile-portal
 ```
 
 ---
@@ -64,12 +79,13 @@ The framework supports three credential capture strategies via the `--negotiate`
 
 ### Python Dependencies
 
-```
-scapy
-flask
+Install with:
+
+```bash
+pip install -r requirements.txt
 ```
 
-Install them with:
+Or manually:
 
 ```bash
 pip install scapy flask
@@ -81,13 +97,15 @@ pip install scapy flask
 
 All attack commands require **root privileges** (`sudo`).
 
-### 1. Generate Fake Certificates (run first)
+### 1. Generate Fake Certificates (run first!)
 
 ```bash
 sudo python3 eapattacker.py --cert-wizard
 ```
 
-This creates `ca.pem`, `server.pem`, and `server.key` inside `WPA2-EAP/certs/`.
+This creates `ca.pem`, `server.pem`, and `server.key` inside `certs/`.
+
+> **Note:** You must run this before using `--creds` or `--karma`, as both require valid certificates for the rogue RADIUS server.
 
 ### 2. Launch Evil Twin AP + Credential Capture
 
