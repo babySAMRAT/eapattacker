@@ -75,7 +75,7 @@ git clone https://github.com/babySAMRAT/eapattacker.git
 cd eapattacker
 
 # Install Python dependencies
-pip install -r requirements.txt
+sudo apt install -y python3-scapy python3-flask
 ```
 
 ---
