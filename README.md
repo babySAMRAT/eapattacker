@@ -24,7 +24,6 @@ A modular Python framework for testing WPA2-Enterprise (802.1X / EAP) network se
 | **Deauthentication** | Sends 802.11 deauth frames to disconnect clients from a target AP |
 | **KARMA Attack** | Listens for probe requests and auto-spawns matching APs for any SSID clients are looking for |
 | **Hostile Portal** | Serves a phishing captive portal mimicking a corporate login page to harvest AD credentials |
-| **WiFi Jammer** | Standalone multi-target deauth tool — scans all nearby networks and attacks them in parallel |
 
 ## EAP Negotiation Strategies
 
@@ -41,7 +40,6 @@ The framework supports three credential capture strategies via the `--negotiate`
 ## Project Structure
 
 ```
-Cyber Tools/
 ├── eapattacker.py              # Main CLI entry point
 ├── karma.py                    # KARMA attack module
 ├── hostile_portal.py           # Captive portal credential phishing
@@ -49,8 +47,6 @@ Cyber Tools/
 │   ├── rogue_ap.py             # Rogue AP launcher (hostapd config generator)
 │   ├── cert_wizard.py          # Fake certificate generator (OpenSSL)
 │   └── deauth.py               # Targeted deauthentication attack
-├── WiFi-Jammer/
-│   └── wifi_jammer.py          # Multi-target deauth (scan + attack all APs)
 └── README.md
 ```
 
@@ -124,21 +120,6 @@ sudo python3 eapattacker.py -i wlan0 --essid "CorpWiFi" --hostile-portal
 ```
 
 Captured credentials are saved to `ad_creds.txt`.
-
-### 6. WiFi Jammer (Standalone Multi-Target Deauth)
-
-```bash
-cd WiFi-Jammer
-sudo python3 wifi_jammer.py -i wlan0
-```
-
-| Flag | Description | Default |
-|---|---|---|
-| `-i` | Wireless interface | *required* |
-| `-s` | Scan duration (seconds) | `15` |
-| `-c` | Deauth frames per AP | `500` |
-| `-t` | Interval between frames (seconds) | `0.05` |
-| `-T` | Max concurrent threads | `10` |
 
 ---
 
